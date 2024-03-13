@@ -54,6 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
       start: "top bottom",
       scrub: 1.8,
     },
+
+    benefits: {
+      trigger: ".about",
+      start: "top bottom",
+      scrub: 1.8,
+    },
   };
 
   //square rotate animation
@@ -80,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tl.to(".header-img", {
       scrollTrigger: commonScrollTrigger.header,
-      xPercent: -70, //x축으로 70%만큼 이동
+      xPercent: xValue, //x축으로 70%만큼 이동
       //=================================================================
     });
 
@@ -137,7 +143,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     benefits_nums.forEach((num) => {
       const data_speed = num.getAttribute("data-speed");
-      console.log(data_speed);
+      // console.log(1 - parseFloat(data_speed));
+
+      tl.from(num, {
+        scrollTrigger: commonScrollTrigger.benefits,
+        x: -data_speed,
+      });
     });
   }
 
